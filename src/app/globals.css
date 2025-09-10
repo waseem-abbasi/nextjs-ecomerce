@@ -1,3 +1,8 @@
+/* toastify */
+/* globals.css */
+@import 'react-toastify/dist/ReactToastify.css';
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
