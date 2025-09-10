@@ -133,8 +133,8 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/">
-                    Cards
+                  <Link className="nav-link" href="/cart">
+                    Carts
                   </Link>
                 </li>
                 <li className="nav-item">

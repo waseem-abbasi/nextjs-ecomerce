@@ -54,7 +54,7 @@ export default function Payment() {
 
                 console.log("response is ", response.data);
                 toast.success("Payment saved!");
-                router.push("/cart");
+                router.push("/");
             }
             else {
                 toast.error("user not found");
