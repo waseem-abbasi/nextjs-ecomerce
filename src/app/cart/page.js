@@ -4,8 +4,8 @@ import axios from "axios";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import Navbar from "../component/navbar";
-import Footer from "../component/footer";
+
+// import Navbar from "../component/navbar";
 import { montserrat, roboto } from "../fonts";
 
 import { useCart } from "../context/CartContext";
@@ -13,8 +13,6 @@ import { useCart } from "../context/CartContext";
 export default function Cart() {
 
   const { deleteFromCart } = useCart();
-
- 
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -37,9 +35,10 @@ export default function Cart() {
         toast.info("Please Login First", { toastId: "login-warning" });
         setTimeout(() => {
           router.push("/");
-        }, 1500); // 1.5 second delay
+        }, 1500);
         return;
       }
+
       const res = await axios.get("/api/cart_fetch", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -133,23 +132,23 @@ export default function Cart() {
       }
     }
   }
-const handlebill = ()=>{
-      if(rawid != null){
+  const handlebill = () => {
+    if (rawid != null) {
       toast.warn("click on save fisrt");
       return;
     }
     router.push("/bill")
-}
+  }
   // handle plus --------->
   const handlePlus = (item) => {
     if (item.cart_quantity < item.product_stock) {
 
       const updatedProducts = products.map((p) =>
         p.cart_id === item.cart_id
-      ? { ...p, cart_quantity: p.cart_quantity + 1 }
-      : p
-    );
-    console.log("item cart id",item.cart_id)
+          ? { ...p, cart_quantity: p.cart_quantity + 1 }
+          : p
+      );
+      console.log("item cart id", item.cart_id)
       setProducts(updatedProducts);
       //refresh page
 
@@ -179,12 +178,12 @@ const handlebill = ()=>{
   const handleUpdate = (item) => {
     console.log("item is" + item.cart_id)
     // console.log("index"+index);
-    if(rawid != null){
+    if (rawid != null) {
       toast.warn("click on save fisrt");
       return;
     }
     setRawid(item.cart_id)
-    
+
     // setQuantityInput(false)
     console.log(item);
     console.log("raw id" + rawid);
@@ -195,7 +194,6 @@ const handlebill = ()=>{
     try {
       const token = sessionStorage.getItem("token");
       if (!token) {
-
         router.push("/login");
         return;
       }
@@ -218,7 +216,7 @@ const handlebill = ()=>{
         //refresh page
         fetchCarts();
         setRawid(null)
-        
+
       } else {
         toast.error("Failed to update quantity!");
       }
@@ -239,7 +237,7 @@ const handlebill = ()=>{
 
   return (
     <>
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      {/* <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <ul className="nav" style={{ background: "#d4ddeaff" }}>
 
         <li className="nav-item me-auto ps-5">
@@ -250,15 +248,10 @@ const handlebill = ()=>{
           <Link href="/" className="nav-link">Home</Link>
         </li>
 
-      </ul>
-      <div className="container-fluid mt-4">
+      </ul> */}
+      <div className="container-fluid me-5" style={{ margin: "100px 0px 100px 0px" }}>
         <div className="row">
-
-
-
-
           <div className="col-sm-8">
-
             {/* Available Items */}
             <div className="card shadow-lg mb-4 ">
               <h5 className="p-3 bg-warning">Available Items</h5>
@@ -273,7 +266,7 @@ const handlebill = ()=>{
                       <th>Description</th>
                       <th>Quantity</th>
                       <th>Rs</th>
-                     
+
                       <th colSpan={2} >Action</th>
                     </tr>
                   </thead>
@@ -317,16 +310,13 @@ const handlebill = ()=>{
                               </div>
                             </td>
                           )}
-
                           <td>{item.price}</td>
-
                           <td>
                             <i
                               className="bi bi-trash3 text-danger fs-6"
                               onClick={() => handleDelete(item)}
                             ></i>
                           </td>
-
                           {rawid === item.cart_id ? (
                             <td>
                               <i
@@ -349,8 +339,6 @@ const handlebill = ()=>{
                 </table>
               </div>
             </div>
-
-
             {/* Unavailable Items */}
             <div className="card shadow-lg">
               <h5 className="p-3 bg-danger">Unavailable / Booked Items</h5>
@@ -361,7 +349,6 @@ const handlebill = ()=>{
                     <th>Image</th>
                     <th>Type</th>
                     <th>Description</th>
-
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -380,24 +367,13 @@ const handlebill = ()=>{
                         <td>
                           <span className="badge bg-warning">Booked</span>
                         </td>
-
                       </tr>
                     ))
                   )}
                 </tbody>
               </table>
             </div>
-
           </div>
-
-
-
-
-
-
-
-
-
           <div className="col-sm-4">
             <div className="card p-4 shadow-lg">
               <h4 className="text-primary fw-bold">Order Summary</h4>
@@ -422,7 +398,7 @@ const handlebill = ()=>{
               </div>
               <div className="d-grid gap-2 mt-3">
                 <button className="btn btn-primary" type="button" onClick={handlebill}>
-Procced to Checkout                </button>
+                  Procced to Checkout                </button>
               </div>
               <div className="d-flex justify-content-center mt-3">
                 <Link href="/" className="nav-link">Continue Shoping</Link>
@@ -431,7 +407,7 @@ Procced to Checkout                </button>
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

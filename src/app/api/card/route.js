@@ -11,7 +11,7 @@ export async function POST(req) {
 
     const checkQuery = `
       SELECT * FROM cart 
-      WHERE product = $1 AND userid = $2
+      WHERE product = $1 AND userid = $2 and status='available'
     `;
     const checkValues = [body.id, user_id];
     const checkResult = await pool.query(checkQuery, checkValues);

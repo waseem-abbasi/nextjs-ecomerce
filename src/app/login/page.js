@@ -5,7 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-
+import { jwtDecode } from "jwt-decode";
 export default function LoginPage() {
   const router = useRouter();
   const otpErrorRef = useRef(null);
@@ -57,7 +57,6 @@ export default function LoginPage() {
       } else {
         otpErrorRef.current.innerText = "";
       }
-
       const res = await axios.post("/api/otp_verify", {
         email: formData.email,
         otp: otpValue,
@@ -66,9 +65,23 @@ export default function LoginPage() {
       console.log("email and otp", res);
 
       if (res.data.message === "otp verify successfully") {
-        sessionStorage.setItem("token", res.data.token);
-        toast.success("OTP verified! Login successful.");
-        router.push("/");
+
+        const token = sessionStorage.setItem("token", res.data.token);
+
+        if(!token){
+
+          const token = sessionStorage.getItem("token", res.data.token)
+          const decode = jwtDecode(token)
+          console.log("decoddee is",decode);
+          if(decode.role === 'admin'){
+            toast.success("OTP verified! Login successful.");
+            router.push("/dashboard")
+          }else{
+            toast.success("OTP verified! Login successful.");
+            router.push("/")
+          }
+
+        }else{console.log("token is not valid")}
       } else {
         toast.error("Invalid OTP");
       }
@@ -82,6 +95,7 @@ export default function LoginPage() {
       }
     }
   };
+  
 
   return (
     <div

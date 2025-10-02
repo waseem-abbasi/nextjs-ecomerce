@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useCart } from "../context/CartContext";
 import { useRouter } from "next/navigation";
-import Navbar from "../component/navbar";
-import Footer from "../component/footer";
+// import Navbar from "../component/navbar";
+// import Footer from "../component/footer";
 
 export default function Payment() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,7 +51,6 @@ export default function Payment() {
                 { headers: { "Content-Type": "application/json" } }
             );
             if (response.data.success) {
-
                 console.log("response is ", response.data);
                 toast.success("Payment saved!");
                 router.push("/");
@@ -67,13 +66,11 @@ export default function Payment() {
 
     return (
         <>
-            <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+           
 
             <div className="justify-content-center align-items-center d-flex mt-5 shadow-lg bg-white">
                 <div className="d-grid gap-2 m-5 border border-info">
-                    <h1 className="text-center text-info  m-5" >Payment Gateway</h1>
-                    
-                    
+                    <h1 className="text-center text-info  m-5" >Payment Gateway</h1> 
                     <button
                         type="button"
                         className="btn btn-primary me-3 ms-3"
@@ -90,7 +87,7 @@ export default function Payment() {
                     </button>
                 </div>
             </div>
-            <Footer />
+            
         </>
     );
 }

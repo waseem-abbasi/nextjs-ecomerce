@@ -14,12 +14,14 @@
     "axios": "^1.11.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
+    "chart.js": "^4.5.0",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "next": "15.4.6",
     "nodemailer": "^7.0.5",
     "pg": "^8.16.3",
     "react": "19.1.0",
+    "react-data-table-component": "^7.7.0",
     "react-dom": "19.1.0",
     "react-toastify": "^11.0.5"
   }

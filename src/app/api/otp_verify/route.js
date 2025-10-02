@@ -32,10 +32,20 @@ export async function POST(req) {
     }
 
     // Get user info
-    const userResult = await pool.query(
-      "SELECT id, firstname, lastname, email FROM users WHERE email = $1",
+    // const userResult = await pool.query(
+    //   "SELECT id, firstname, lastname, email FROM users WHERE email = $1",
+    //   [email]
+    // );
+
+      const userResult = await pool.query(
+      `SELECT u.id, u.firstname, u.lastname, u.email, r.name as role
+       FROM users u
+       JOIN role r ON u.role = r.id
+       WHERE u.email = $1`,
       [email]
     );
+
+    console.log("user result is",userResult)
 
     if (userResult.rows.length === 0) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -50,6 +60,7 @@ export async function POST(req) {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
+        role:user.role
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }

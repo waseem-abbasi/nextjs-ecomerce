@@ -1,43 +1,56 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "./component/navbar";
-import Homebar from "./component/home";
-import Thirdsection from "./component/thirdsection";
-import Card from "./component/cards";
-import Footer from "./component/footer";
+
+import Homebar from "./(component)/home";
+import Thirdsection from "./(component)/thirdsection";
+import Card from "./(component)/cards";
+import Allitems from "./allItems/page";
 import axios from "axios";
 //decode
 import { jwtDecode } from "jwt-decode";
 //createcontext----
 import { useCart } from "./context/CartContext";
+//router------
+import { useRouter } from "next/navigation";
 
 import { toast } from "react-toastify";
 export default function Home() {
+  const router = useRouter()
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [categories, setCategories] = useState({});
+  const [role, setRole] = useState();
   //createcontext-------
- const { addToCart } = useCart();
+  const { addToCart } = useCart();
 
-  const fetchData=async()=>{
-    try{
+  const fetchData = async () => {
+    try {
       const token = sessionStorage.getItem("token");
-      console.log("token is",token);
+      console.log("token is", token);
 
-       const res = await axios.get("/api/users", {
+      // const decode = jwtDecode(token);
+
+      // console.log("decode is ----->",decode.role);
+
+      // if(decode.role == 'admin'){
+      //   router.push("/admin")
+      //   toast.success("this is admin ");
+      // }
+
+      const res = await axios.get("/api/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("response is",res.data.success);
+      console.log("response is", res.data.success);
 
-       if (res.data.success) {
+      if (res.data.success) {
         const grouped = groupByCategory(res.data.data);
         setCategories(grouped);
-        console.log("grouped" , grouped)
+        console.log("grouped", grouped)
       } else {
         console.error("API error:", res.data.message);
       }
 
-    }catch(error){
-      console.log("error is--->",error)
+    } catch (error) {
+      console.log("error is--->", error)
     }
   }
 
@@ -62,8 +75,20 @@ export default function Home() {
   // };
 
   useEffect(() => {
-    fetchData();
+    setIsLoggedIn(sessionStorage?.getItem('token') ? true : false)
+
   }, []);
+
+  useEffect(() => {
+
+    // const token = sessionStorage.getItem("token")
+    // const decode = jwtDecode(token);
+    // console.log("decode is-----=>",decode);
+    // if (role === "admin") {
+    //   router.push("/admin");
+    // }
+    fetchData();
+  }, [role]);
 
   function groupByCategory(rows) {
     console.log("rows is", rows);
@@ -142,6 +167,7 @@ export default function Home() {
       console.log("decod", decode);
 
       userid = decode.id;
+      setRole(decode.role);
     } catch (error) {
       console.log("Invalid Token", error);
     }
@@ -163,22 +189,22 @@ export default function Home() {
         toast.success(res.data.message || "Item added to cart");
         // console.log("item added")
         //usecontext---->
-       
-         addToCart(res.data.data);
+
+        addToCart(res.data.data);
       }
     } catch (error) {
-      console.log("error----->>>",error);
-        if (error.response.status === 409) {
+      console.log("error----->>>", error);
+      if (error.response.status === 409) {
         toast.error(error.response.data.message || "Item already exists in cart");
         // console.log("Item already exists", error.response.data);
-      } 
+      }
     }
 
   };
   return (
     <>
       {/* Navbar */}
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      {/* <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> */}
 
       {/* Home Section */}
       <Homebar />
@@ -201,8 +227,11 @@ export default function Home() {
         />
       ))}
 
+     
+
+
       {/* Footer */}
-      <Footer />
+
     </>
   );
 }

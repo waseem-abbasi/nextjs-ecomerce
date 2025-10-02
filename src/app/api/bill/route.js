@@ -40,9 +40,10 @@ export async function POST(req) {
       const beforequantity = item.product_stock - item.cart_quantity;
 
       console.log("before quantity-->",beforequantity)
+      
       await pool.query(
         `UPDATE products 
-         SET quantity =  $1
+         SET quantity = $1
          WHERE id = $2`,
         [beforequantity, item.product_id]
       );
