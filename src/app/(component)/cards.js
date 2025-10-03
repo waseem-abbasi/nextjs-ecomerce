@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 export default function Card({ name, data, description, style, isLoggedIn, handlequintyinc, handlequintydec, handleCard }) {
   const router = useRouter()
 
-  console.log("data =>", data);
+  // console.log("data =>", data);
 
   return (
     <div className="border" style={style}>
@@ -15,7 +15,6 @@ export default function Card({ name, data, description, style, isLoggedIn, handl
       <div className="row p-4">
         {data.map((item, ind) => {
           console.log("item => ", item);
-
           if (item.status !== "available") return null;
           if (ind <= 3) {
             return (

@@ -4,9 +4,9 @@ export default function Homebar() {
     // const imgsrc = 'https://m.media-amazon.com/images/I/3110zKZoMGL._SY445_SX342_QL70_FMwebp_.jpg';
     return (
         <>
-            <div className="container mt-5 pt-5">
+            <div className="container mt-5 pt-5" style={{ marginTop: "200px" }}>
                 <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-sm-6">
                         <div className="card ">
                             <div className="m-5 ">
                                 <span className=" p-3 rounded text-primary" style={{ backgroundColor: "#99b8e6ff" }}>New Collection 2025</span>
@@ -21,7 +21,7 @@ export default function Homebar() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-sm-6">
                         <div className="card ">
                             {/* <Image src='' width='' height='' /> */}
 
