@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${geist.className}`}>
+      <body className={`${geist.className}`} >
         <CartProvider>
           {notshow ?
             <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
