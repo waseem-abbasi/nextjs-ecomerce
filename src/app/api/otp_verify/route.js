@@ -62,7 +62,7 @@ export async function POST(req) {
         email: user.email,
         role:user.role
       },
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET || "i_birds_services",
       { expiresIn: "1h" }
     );
 
