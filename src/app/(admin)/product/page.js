@@ -31,7 +31,8 @@ export default function Product() {
     const handleChange = (e) => {
          setFormData({ ...formData, [e.target.name]: e.target.value })
          
-         console.log(formData)
+         console.log("formdata isis ",formData)
+         console.log("e",e);
     };
 
 
@@ -115,7 +116,7 @@ export default function Product() {
             width: "70px",
         },
          {
-            name: "Image",
+            name: "imgurl",
             selector: (row) => row.imgurl,
             sortable: true,
         },
@@ -177,7 +178,6 @@ export default function Product() {
     const fetchCategory = async () => {
         try {
             const token = sessionStorage.getItem("token");
-
             if (!token) {
                 toast.info("please login first");
                 router.push("/login");
@@ -188,12 +188,9 @@ export default function Product() {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
-
             console.log("categor res===>", res);
             console.log("data is", res.data.data);
             console.log("succes", res.data.success)
-
             if (res.data.success) {
                 setCategory(res.data.data);
                 console.log("response is true ---->", res.data.data);
@@ -295,7 +292,6 @@ export default function Product() {
                                             <option value="unavailable">unavailable</option>
                                         </select>
                                     </div>
-
                                     <div className="mb-3">
                                         <label>Quantity</label>
                                         <input
@@ -314,6 +310,17 @@ export default function Product() {
                                             name="price"
                                             className="form-control"
                                             value={formData.price}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                     <div className="mb-3">
+                                        <label>image</label>
+                                        <input
+                                           
+                                            name="imgurl"
+                                            className="form-control"
+                                            value={formData.imgurl}
                                             onChange={handleChange}
                                             required
                                         />

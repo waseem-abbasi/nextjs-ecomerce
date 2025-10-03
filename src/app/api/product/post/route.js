@@ -14,7 +14,7 @@ export async function POST(req) {
 
     const { name, category, price, quantity, status, description,imgurl } = body;
 
-    if (!name || !status || !description || !quantity || !price || !category ) {
+    if (!name || !status || !description || !quantity || !price || !category || !imgurl) {
       return NextResponse.json(
         { message: "Name, status, description, quantity, price, and category are required", success: false }
        
@@ -33,10 +33,10 @@ export async function POST(req) {
     }
 
     const result = await pool.query(
-      `INSERT INTO products (name, status, description, quantity, price, category)
-       VALUES ($1, $2, $3, $4, $5, $6)
+      `INSERT INTO products (name, status, description, quantity, price, category,imgurl)
+       VALUES ($1, $2, $3, $4, $5, $6,$7)
        RETURNING *`,
-      [name, status, description, quantity, price, category]
+      [name, status, description, quantity, price, category,imgurl]
     );
 
     return NextResponse.json(
