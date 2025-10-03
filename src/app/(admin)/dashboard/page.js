@@ -13,11 +13,10 @@ export default function Dashboard() {
 
     const chartRef = useRef(null);
     const chartRef2 = useRef(null);
-    const chartRef3 = useRef(null);
-
+   
     const chartInstance = useRef(null);
     const chartInstance2 = useRef(null);
-    const chartInstance3 = useRef(null);
+   
 
     const router = useRouter();
 
@@ -195,51 +194,51 @@ export default function Dashboard() {
                 },
             });
         }
-         // ---------------- Bar Chart (Name vs Quantity) ----------------
-        if (chartRef3.current) {
-            if (chartInstance3.current) {
-                chartInstance3.current.destroy();
-            }
+        //  // ---------------- Bar Chart (Name vs Quantity) ----------------
+        // if (chartRef3.current) {
+        //     if (chartInstance3.current) {
+        //         chartInstance3.current.destroy();
+        //     }
 
-            const ctx3 = chartRef3.current.getContext("2d");
+        //     const ctx3 = chartRef3.current.getContext("2d");
 
-            const productNames = product.map((p) => p.name);
-            const productQuantities = product.map((p) => p.quantity);
+        //     const productNames = product.map((p) => p.name);
+        //     const productQuantities = product.map((p) => p.quantity);
 
-            chartInstance3.current = new Chart(ctx3, {
-                type: "pie",
-                data: {
-                    labels: productNames,
-                    datasets: [
-                        {
-                            label: "Quantity",
-                            data: productQuantities,
-                            backgroundColor: "#0da2fd66",
-                            borderColor: "rgba(54, 162, 235, 1)",
-                            borderWidth: 1,
-                        },
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { position: "top" },
-                    },
-                    scales: {
-                        y: { beginAtZero: true },
-                    },
-                    onClick: (e, elements) => {
-                        if (elements.length > 0) {
-                            const index = elements[0].index;
-                            const name = productNames[index];
-                            const qty = productQuantities[index];
-                            console.log(`Clicked: ${name} (Qty: ${qty})`);
-                            toast.info(`Clicked: ${name} (Qty: ${qty})`);
-                        }
-                    },
-                },
-            });
-        }
+        //     chartInstance3.current = new Chart(ctx3, {
+        //         type: "pie",
+        //         data: {
+        //             labels: productNames,
+        //             datasets: [
+        //                 {
+        //                     label: "Quantity",
+        //                     data: productQuantities,
+        //                     backgroundColor: "#0da2fd66",
+        //                     borderColor: "rgba(54, 162, 235, 1)",
+        //                     borderWidth: 1,
+        //                 },
+        //             ],
+        //         },
+        //         options: {
+        //             responsive: true,
+        //             plugins: {
+        //                 legend: { position: "top" },
+        //             },
+        //             scales: {
+        //                 y: { beginAtZero: true },
+        //             },
+        //             onClick: (e, elements) => {
+        //                 if (elements.length > 0) {
+        //                     const index = elements[0].index;
+        //                     const name = productNames[index];
+        //                     const qty = productQuantities[index];
+        //                     console.log(`Clicked: ${name} (Qty: ${qty})`);
+        //                     toast.info(`Clicked: ${name} (Qty: ${qty})`);
+        //                 }
+        //             },
+        //         },
+        //     });
+        // }
     }, [product, category, users]);
     
 
@@ -301,9 +300,9 @@ export default function Dashboard() {
                     <div className="col-sm-5 card shadow-lg me-2">
                         <canvas ref={chartRef2}></canvas>
                     </div>
-                    <div className="col-sm-3 card shadow-lg ms-4">
+                    {/* <div className="col-sm-3 card shadow-lg ms-4">
                         <canvas ref={chartRef3}></canvas>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

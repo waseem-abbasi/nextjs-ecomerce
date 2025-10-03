@@ -154,11 +154,11 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
                       Product
                     </Link>
                   </li>
-                  <li className="nav-item mt-3">
+                  {/* <li className="nav-item mt-3">
                     <Link className="text-decoration-none text-light" href="/bill_summary">
                       Bill Summary
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="nav-item mt-3">
                     <button type="button" className="btn btn-primary" onClick={handleLogout}>{isLoggedIn ? "Logout" : "Login"}</button>
                   </li>

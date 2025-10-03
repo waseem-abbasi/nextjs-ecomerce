@@ -174,13 +174,13 @@ export default function Category() {
 
   return (
     <>
-      <h1
+      {/* <h1
         className="text-info fst-normal text-center"
         style={{ marginTop: "100px" }}
       >
         This is category page
-      </h1>
-      <div className="d-flex justify-content-end">
+      </h1> */}
+      <div className="d-flex justify-content-end me-5" style={{ marginTop: "100px" }}>
 
         <button className="btn btn-info m-3" onClick={handleInsert}>Insert</button>
       </div>
@@ -253,7 +253,7 @@ export default function Category() {
           <h1></h1>
         </>
       )}
-      <table className="table">
+      <table className="table table-hover border shadow rounded container">
         <thead>
           <tr>
             <th scope="col">s.no</th>
