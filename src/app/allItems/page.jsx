@@ -7,7 +7,7 @@ export default function Allitems({ name, data, description, style, isLoggedIn, h
       </div>
 
       <div className="row p-4">
-        {data.map((item) => {
+        {data?.map((item) => {
           if (item.status !== "available") return null;
           return (
             <div className="col-lg-3" key={item.id}>
@@ -19,7 +19,6 @@ export default function Allitems({ name, data, description, style, isLoggedIn, h
                     alt={item.name}
                   />
                 </div>
-
                 <div className="card-body">
                   {item.quantity <= 0 ? (
                     <>

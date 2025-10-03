@@ -87,7 +87,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
     <>
       <nav className="navbar navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
-          <h4 className="text-white ">E-Commerceeeeeee</h4>
+          <h4 className="text-white ">E-Commerce</h4>
           <h5 className="m-2  text-white">{userName ? `Welcome, ${userName}` : ""}</h5>
           <div className="ms-auto pe-5">
 

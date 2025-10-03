@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Homebar from "./(component)/home";
 import Thirdsection from "./(component)/thirdsection";
 import Card from "./(component)/cards";
-import Allitems from "./allItems/page";
+
 import axios from "axios";
 //decode
 import { jwtDecode } from "jwt-decode";
