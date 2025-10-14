@@ -5,7 +5,7 @@ export default function Thirdsection() {
     return (
         <>
             <div className={`border border-primary ${montserrat.className}`}  style={{ background: "#d4ddeaff" }}>
-                <div className="row p-5">
+                <div className="row p-5 my-2">
                     <div className="col-lg-3  p-3 ">
                         <h5>Free Shipping</h5>
                         <p>Nulla sit morbi vestibulum eros duis amet, consectetur vitae lacus. Ut quis tempor felis sed nunc viverra.</p>
@@ -23,7 +23,6 @@ export default function Thirdsection() {
                         <p>Nulla sit morbi vestibulum eros duis amet, consectetur vitae lacus. Ut quis tempor felis sed nunc viverra.</p>
                     </div>
                 </div>
-
             </div>
         </>
     )

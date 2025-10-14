@@ -6,12 +6,11 @@ export default function Card({ name, data, description, style, isLoggedIn, handl
   // console.log("data =>", data);
 
   return (
-    <div className="border" style={style}>
+    <div >
       <div className="text-center mt-5">
         <h1>{name}</h1>
         <p>{description}</p>
       </div>
-
       <div className="row p-4">
         {data.map((item, ind) => {
           console.log("item => ", item);
@@ -19,7 +18,7 @@ export default function Card({ name, data, description, style, isLoggedIn, handl
           if (ind <= 3) {
             return (
               <div className="col-lg-3" key={item.id}>
-                <div className="card">
+                <div className="card my-2">
                   <div className="card-header">
                     <img
                       src={item.imgurl}
