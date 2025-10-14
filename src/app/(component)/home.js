@@ -16,8 +16,8 @@ export default function Homebar() {
                                 <p className="mt-5">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Vestibulum ante ipsum primis in faucibus
                                 </p>
-                                <button type="button" className="btn btn-primary">Shop now</button>
-                                <button type="button" className="btn btn-outline-primary ms-4">View Collection</button>
+                                <button type="button" className="btn btn-primary mt-2 ms-2">Shop now</button>
+                                <button type="button" className="btn btn-outline-primary mt-2 ms-2">View Collection</button>
                             </div>
                         </div>
                     </div>
@@ -33,8 +33,7 @@ export default function Homebar() {
                                 width={300}        
                                 height={300}       
                                 className="rounded"
-                            /> */}
-
+                            /> */}  
                         </div>
                     </div>
                 </div>
