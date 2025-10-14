@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 
 export async function POST(req) {
   try {
-   
     const authHeader = req.headers.get("authorization");
     if (!authHeader) {
       return NextResponse.json({ error: "No token provided" }, { status: 401 });
@@ -29,7 +28,6 @@ export async function POST(req) {
     if (!rs || !description || !type) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
-
     
     const result = await pool.query(
       "INSERT INTO products (rs, description, type, created_by) VALUES ($1, $2, $3, $4) RETURNING *",
