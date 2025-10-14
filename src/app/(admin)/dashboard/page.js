@@ -247,21 +247,21 @@ export default function Dashboard() {
             <div className="container">
                 <h1
                     className="text-body-secondary fw-bold"
-                    style={{ marginTop: "80px" }}
+                    style={{ marginTop: "140px" }}
                 >
                     Dashboard
                 </h1>
                 <div className="row  ">
-                    <div className="col-sm-3 ">
+                    <div className="col-sm-3 my-2">
                         <div className="card p-3 shadow-lg" style={{ backgroundColor: "#e993967d" }}>
                             <span className="border-info ">
                                 <i className="bi bi-handbag fs-2 "></i>
                             </span>
-                            <h4 className="py-2">Total product</h4>
+                            <h4 className="py-2">Total Product</h4>
                             <h2>{product.length}</h2>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-3 my-2">
                         <div className="card p-3 shadow-lg" style={{ backgroundColor: "#0da2fd66" }}>
                             <span className="border-info ">
                                 <i className="bi bi-luggage fs-2"></i>
@@ -270,16 +270,16 @@ export default function Dashboard() {
                             <h2>{category.length}</h2>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-3 my-2">
                         <div className="card p-3 shadow-lg" style={{ backgroundColor: "#86eb88e3" }}>
                             <span className="border-info ">
                                 <i className="bi bi-people-fill fs-2"></i>
                             </span>
-                            <h4 className="py-2">Total users</h4>
+                            <h4 className="py-2">Total Users</h4>
                             <h2>{users.length}</h2>
                         </div>
                     </div>
-                     <div className="col-sm-3">
+                     <div className="col-sm-3 my-2">
                         <div className="card p-3 shadow-lg" style={{ backgroundColor: "#c3e1f1de" }}>
                             <span className="border-info ">
                                 <i className="bi bi-layout-text-sidebar-reverse fs-2"></i>

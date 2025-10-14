@@ -88,7 +88,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
       <nav className="navbar navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
           <h4 className="text-white ">E-Commerce</h4>
-          <h5 className="m-2  text-white">{userName ? `Welcome, ${userName}` : ""}</h5>
+          <h5 className=" text-white">{userName ? `Welcome, ${userName}` : ""}</h5>
           <div className="ms-auto pe-5">
 
             {roll === 'admin' ? ("") : (
@@ -138,9 +138,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
               {roll === 'admin' ? (
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li className="nav-item mt-3">
-
                     <Link className="text-decoration-none text-light" href="/dashboard">
-
                       Dashboard
                     </Link>
                   </li>
@@ -181,8 +179,6 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
                   </li>
                 </ul>
               )}
-
-
             </div>
           </div>
         </div>
