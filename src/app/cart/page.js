@@ -260,7 +260,7 @@ export default function Cart() {
                 <table className="table ">
                   <thead >
                     <tr>
-                      <th>#</th>
+                      <th>Sr.n</th>
                       <th>Image</th>
                       <th>Type</th>
                       <th>Description</th>
@@ -345,7 +345,7 @@ export default function Cart() {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>Sr.n</th>
                     <th>Image</th>
                     <th>Type</th>
                     <th>Description</th>

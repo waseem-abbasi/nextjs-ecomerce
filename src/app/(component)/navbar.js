@@ -139,12 +139,12 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
                       Dashboard
                     </Link>
                   </li>
-                  <li className="nav-item mt-3">
+                  <li className="nav-item mt-3" data-bs-dismiss="offcanvas" aria-label="Close">
                     <Link className="text-decoration-none text-light" href="/category">
                       Category
                     </Link>
                   </li>
-                  <li className="nav-item mt-3">
+                  <li className="nav-item mt-3" data-bs-dismiss="offcanvas" aria-label="Close">
                     <Link className="text-decoration-none text-light" href="/product">
                       Product
                     </Link>
@@ -160,12 +160,12 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
                 </ul>
               ) : (
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li className="nav-item">
+                  <li className="nav-item" data-bs-dismiss="offcanvas" aria-label="Close">
                     <Link className="nav-link active" href="/">
                       Home
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item" data-bs-dismiss="offcanvas" aria-label="Close">
                     <Link className="nav-link active" href="/cart">
                       Carts
                     </Link>
