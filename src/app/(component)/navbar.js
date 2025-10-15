@@ -85,12 +85,10 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
 
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark fixed-top">
+      <nav className="navbar navbar-dark bg-dark fixed-top mb-5">
         <div className="container-fluid">
           <h4 className="text-white ">E-Commerce</h4>
-          <h5 className=" text-white">{userName ? `Welcome, ${userName}` : ""}</h5>
           <div className="ms-auto pe-5">
-
             {roll === 'admin' ? ("") : (
               <>
                 <div className="position-relative" onClick={handleClick} style={{ cursor: "pointer" }}>
@@ -103,8 +101,6 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
                 </div>
               </>
             )}
-
-
           </div>
 
           <button
@@ -117,13 +113,14 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+          
           <div
             className="offcanvas offcanvas-end text-bg-dark"
             tabIndex="-1"
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel"
           >
-            <div className="offcanvas-header">
+            <div className="offcanvas-header" >
               <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
                 Menu
               </h5>
@@ -137,7 +134,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
             <div className="offcanvas-body">
               {roll === 'admin' ? (
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li className="nav-item mt-3">
+                  <li className="nav-item mt-3" data-bs-dismiss="offcanvas" aria-label="Close">
                     <Link className="text-decoration-none text-light" href="/dashboard">
                       Dashboard
                     </Link>
@@ -164,18 +161,20 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
               ) : (
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li className="nav-item">
-
                     <Link className="nav-link active" href="/">
                       Home
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" href="/cart">
+                    <Link className="nav-link active" href="/cart">
                       Carts
                     </Link>
                   </li>
                   <li className="nav-item">
                     <button type="button" className="btn btn-primary" onClick={handleLogout}>{isLoggedIn ? "Logout" : "Login"}</button>
+                  </li>
+                  <li className="nav-item mt-4">
+                    <h5 className=" text-white">{userName ? `Welcome, ${userName}` : ""}</h5>
                   </li>
                 </ul>
               )}
