@@ -15,13 +15,13 @@ export default function Signup() {
     const usePassword = useRef(null);
 
     const firstNameErrorRef = useRef(null);
-    const lastNameErrorRef = useRef(null);
-    const passwordErrorRef = useRef(null);
-    const emailErrorRef = useRef(null);
+    const lastNameErrorRef  = useRef(null);
+    const passwordErrorRef  = useRef(null);
+    const emailErrorRef     = useRef(null);
 
 
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z][a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/;
+    const emailPattern    = /^[a-zA-Z0-9._%+-]+@[a-zA-Z][a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
     const handleSubmit = async (e) => {
