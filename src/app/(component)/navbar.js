@@ -87,11 +87,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
     <>
       <nav className="navbar navbar-dark bg-dark fixed-top mb-5">
         <div className="container-fluid">
-<<<<<<< HEAD
-          <h4 className="text-white ">E-Commssssserce</h4>
-=======
-          <h4 className="text-white ">E-Commerce</h4>
->>>>>>> 513ec9a161ab509f241e26d888f0b82f8a0698b4
+          <h4 className="text-white ">E-Commasasasaerce</h4>
           <div className="ms-auto pe-5">
             {roll === 'admin' ? ("") : (
               <>
